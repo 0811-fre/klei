@@ -11,22 +11,9 @@
     <modules>
         <module>klei-registry</module>
         <module>klei-gateway</module>
+        <module>klei-item</module>
+        <module>klei-common</module>
     </modules>
-
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-
-        <!--<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
-        <spring-cloud.version>Finchley.SR1</spring-cloud.version>
-        <mapper.starter.version>2.0.3</mapper.starter.version>
-        <mysql.version>5.1.32</mysql.version>
-        <pageHelper.starter.version>1.2.5</pageHelper.starter.version>
-        <klei.latest.version>1.0.0-SNAPSHOT</klei.latest.version>
-        <fastDFS.client.version>1.26.1-RELEASE</fastDFS.client.version>-->
-    </properties>
 
     <!--1.添加父工程坐标-->
     <parent>
@@ -35,14 +22,32 @@
         <version>2.0.4.RELEASE</version>
     </parent>
 
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <spring-cloud.version>Finchley.SR1</spring-cloud.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <mapper.starter.version>2.0.3</mapper.starter.version>
+        <mysql.version>5.1.32</mysql.version>
+        <pageHelper.starter.version>1.2.5</pageHelper.starter.version>
+        <klei.latest.version>1.0.0-SNAPSHOT</klei.latest.version>
+        <fastDFS.client.version>1.26.1-RELEASE</fastDFS.client.version>
+    </properties>
+
+
+
     <dependencyManagement>
         <dependencies>
             <!-- springCloud -->
-            <!--<dependency>
+            <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud.version}</version>
-            </dependency>-->
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -56,11 +61,20 @@
     </build>
 
     <repositories>
-        <repository>
+        <!--<repository>
             <id>maven-aliyun</id>
             <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+        </repository>-->
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>
     </repositories>
+
 
 
 </project>
